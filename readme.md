@@ -2,7 +2,7 @@
 ![image](https://user-images.githubusercontent.com/56998563/119878723-71655300-bf65-11eb-8bc3-98f5903f845b.png)
 
 
-| sensitive-infos.js 내용
+# sensitive-infos.js 내용
 
 /* eslint-disable max-len */
 const discordToken = '';
