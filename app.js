@@ -86,11 +86,11 @@ client.on('message', async (msg)=>{
         // set description text
         document.querySelector('.title__weatherDes').innerHTML = weatherInfoObj.weatherDes;
         // set temp text
-        document.querySelector('.detail__info-box__info-value').innerHTML = weatherInfoObj.temp+'°C';
+        document.querySelector('.temp').innerHTML = Math.round(weatherInfoObj.temp)+'°C';
         // set precipitation text
-        document.querySelector('.detail__info-box__info-value').innerHTMLdd = weatherInfoObj.windSpeed+'m/s';
+        document.querySelector('.wind-speed').innerHTML = weatherInfoObj.windSpeed+'m/s';
         // set humidity text
-        document.querySelector('.detail__info-box__info-value').innerHTML = weatherInfoObj.humidity+'%';
+        document.querySelector('.humidity').innerHTML = weatherInfoObj.humidity+'%';
         return document;
       };
 
