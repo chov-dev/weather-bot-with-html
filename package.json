@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --exec babel-node ./app.js"
   },
   "author": "chov-dev",
   "license": "ISC",
@@ -13,12 +13,17 @@
     "@babel/node": "^7.14.2",
     "@babel/preset-env": "^7.14.2",
     "discord.js": "^12.5.3",
+    "jsdom": "^16.6.0",
+    "node-html-to-image": "^3.1.0",
+    "node-patch": "^0.0.1",
     "nodemon": "^2.0.7"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "eslint": "^7.27.0",
-    "eslint-config-google": "^0.14.0"
-  }
+    "eslint-config-google": "^0.14.0",
+    "prettier": "^2.3.0"
+  },
+  "type": "module"
 }

@@ -1,0 +1,189 @@
+<html>
+
+<head>
+    <script src="https://kit.fontawesome.com/2a10329719.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* import fonts */
+
+    @import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap');
+
+    /* styles */
+
+    * {
+        font-family: 'Sunflower', sans-serif;
+    }
+
+    body {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .container {
+        width: fit-content;
+        height: 560px;
+        background: linear-gradient(145deg, rgba(0, 212, 255, 1) 0%, rgba(9, 9, 121, 1) 61%, rgba(2, 0, 36, 1) 100%);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 50;
+        box-sizing: border-box;
+        border-radius: 15px;
+    }
+
+    .container__icon-container {
+        width: auto;
+        height: auto;
+    }
+
+
+    .container__icon-container__icon {
+        width: 460px;
+        height: 460px;
+    }
+
+    .container__title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: max-content;
+        height: auto;
+    }
+
+
+    .title__address {
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        font-size: 130px;
+        font-weight: 300;
+        color: white;
+        opacity: 90%;
+        box-sizing: border-box;
+    }
+
+    .title__spliter {
+        width: 100%;
+        height: 12px;
+        background-color: white;
+        opacity: 25%;
+        border-radius: 12px;
+        margin: 15px 0px;
+    }
+
+    .title__weatherDes {
+        font-size: 50px;
+        font-weight: 300;
+        display: block;
+        color: white;
+        opacity: 80%;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .container__spliter {
+        width: 12px;
+        height: 100%;
+        background-color: white;
+        opacity: 25%;
+        border-radius: 12px;
+        margin: 0px 50px;
+    }
+
+    .detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: auto;
+        height: auto;
+        box-sizing: border-box;
+        opacity: 100%;
+    }
+
+    .detail__info-box {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 20px 0px;
+    }
+
+    .detail__info-box__icon-continer {
+        width: 65px;
+        height: 65px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .detail__info-box__icon {
+        font-size: 65px;
+        color: white;
+        margin-right: 10px;
+        opacity: 75%;
+    }
+
+    .detail__info-box__info-type {
+        font-size: 75px;
+        color: white;
+        opacity: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        margin-right: 5px;
+    }
+
+    .detail__info-box__info-value {
+        font-size: 75px;
+        color: white;
+        opacity: 90%;
+        font-weight: 300;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container" id="my-node">
+        <div class="container__icon-container">
+            <img class="container__icon-container__icon" src="">
+        </div>
+        <div class=" container__spliter">
+        </div>
+        <div class="container__title">
+            <div class="title__address">서울시</div>
+            <div class="title__spliter"></div>
+            <div class="title__weatherDes">약간 흐리지만 맑지만 모를 예정</div>
+        </div>
+        <div class="container__spliter">
+        </div>
+        <div class="detail">
+            <div class="detail__info-box">
+                <div class="detail__info-box__icon-continer">
+                    <i class="detail__info-box__icon fas fa-thermometer-half"></i>
+                </div>
+                <div class="detail__info-box__info-type">온도</div>
+                <div class="detail__info-box__info-value">0°C</div>
+            </div>
+            <div class="detail__info-box">
+                <div class="detail__info-box__icon-continer">
+                    <i class="detail__info-box__icon fas fa-cloud"></i>
+                </div>
+                <div class="detail__info-box__info-type">풍속</div>
+                <div class="detail__info-box__info-value">50m/s</div>
+            </div>
+            <div class="detail__info-box">
+                <div class="detail__info-box__icon-continer">
+                    <i class="detail__info-box__icon fas fa-tint"></i>
+                </div>
+                <div class="detail__info-box__info-type">습도</div>
+                <div class="detail__info-box__info-value">50%</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
