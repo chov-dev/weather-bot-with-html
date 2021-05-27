@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import discord, {MessageAttachment} from 'discord.js';
+import discord from 'discord.js';
 import {discordToken, googleToken, openweatherToken} from './sensitive-infos.js';
 import fetch from 'node-fetch';
 import nodeHtmlToImage from 'node-html-to-image';
@@ -62,7 +62,7 @@ client.on('message', async (msg)=>{
         // set temp text
         document.querySelector('.detail__info-box__info-value').innerHTML = weatherInfoObj.temp+'°C';
         // set precipitation text
-        document.querySelector('.detail__info-box__info-value').innerHTML = weatherInfoObj.windSpeed+'m/s';
+        document.querySelector('.detail__info-box__info-value').innerHTMLdd = weatherInfoObj.windSpeed+'m/s';
         // set humidity text
         document.querySelector('.detail__info-box__info-value').innerHTML = weatherInfoObj.humidity+'%';
         return document;

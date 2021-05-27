@@ -17,18 +17,31 @@
     body {
         width: fit-content;
         height: fit-content;
+        background-color: #36393e;
     }
 
     .container {
         width: fit-content;
         height: 560px;
-        background: linear-gradient(145deg, rgba(0, 212, 255, 1) 0%, rgba(9, 9, 121, 1) 61%, rgba(2, 0, 36, 1) 100%);
+        overflow: hidden;
+        position: relative;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         padding: 50;
         box-sizing: border-box;
-        border-radius: 15px;
+        border-radius: 70px;
+    }
+
+    .blured-background {
+        width: 100%;
+        height: 100%;
+        display: inline;
+        position: absolute;
+        left: 0px;
+        background-image: url(https://onlyvectorbackgrounds.com/wp-content/uploads/2019/04/Cool-3d-Abstract-Tile-Squares-Pattern-Dark.jpg);
+        background-size: 1000px;
+        z-index: -1;
     }
 
     .container__icon-container {
@@ -148,6 +161,7 @@
 
 <body>
     <div class="container" id="my-node">
+        <div class="blured-background"></div>
         <div class="container__icon-container">
             <img class="container__icon-container__icon" src="">
         </div>
