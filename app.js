@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 /* eslint-disable max-len */
 import discord from 'discord.js';
 import {discordToken, googleToken, openweatherToken} from './sensitive-infos.js';
@@ -18,25 +19,44 @@ client.on('ready', () => {
   console.log(`✅ Bot actived as ${client.user.tag} :3`);
 });
 
+// Response at -날씨
+
 client.on('message', async (msg)=>{
   if (msg.content.startsWith('-날씨 ')) {
+    // Extract address
+
     const address = msg.content.substring(4, msg.content.length);
+
+    // Get coordinate API response
+
     const getCoordinateInfo = (address) => {
       return fetch(encodeURI(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${googleToken}`));
     };
-    // eslint-disable-next-line no-var
-    var weatherInfo = 'not changed';
+
+    var weatherInfo = undefined;
+
     const deriveWeatherInfo= async () => {
+      // Parsing JSON
+
       const locationJson = await (await getCoordinateInfo(address)).json();
       const locationAxis = await locationJson.results[0].geometry.location;
+
+      // Request weatherInfo and Parse JSON
+
       const weatherRes = await fetch(encodeURI(`https://api.openweathermap.org/data/2.5/weather?lang=kr&lat=${locationAxis.lat}&lon=${locationAxis.lng}&appid=${openweatherToken}`));
       const weatherJson = await weatherRes.json();
-      return weatherInfo = weatherJson;
+
+      // Save JSON
+
+      weatherInfo = weatherJson;
     };
+
+    // make new func (to use Async func)
     deriveWeatherInfo().then((response) => {
       generateWeatherImage(weatherInfo);
     });
-    // imageCode, location, weatherDes, temp, precipitation, humidity
+
+    // Convert JSON to weatherInfoObj (imageCode, location, weatherDes, temp, windSpeed, humidity)
     const generateWeatherImage = async (weatherInfo) => {
       const weatherInfoObj = {
         'imageCode': weatherInfo.weather[0].icon,
@@ -46,13 +66,19 @@ client.on('message', async (msg)=>{
         'windSpeed': weatherInfo.wind.speed,
         'humidity': weatherInfo.main.humidity,
       };
+
+      // Import html
+
       const imageHtml = fs.readFileSync('weather-image.html', 'utf-8');
+
+      // Generate DOM & Document
 
       const dom = new JSDOM(imageHtml);
       const document = dom.window.document;
 
+      // Put weather infos to HTML elements
+
       const fiilInInfosToHtml = (weatherInfoObj) => {
-        console.log(weatherInfoObj);
         // set icon src
         document.querySelector('.container__icon-container__icon').outerHTML = `<img class="container__icon-container__icon" src="http://openweathermap.org/img/wn/${weatherInfoObj.imageCode}@4x.png">`;
         // set location text
@@ -67,8 +93,14 @@ client.on('message', async (msg)=>{
         document.querySelector('.detail__info-box__info-value').innerHTML = weatherInfoObj.humidity+'%';
         return document;
       };
+
+      // Get innerHTML of Document
+
       const imageHtmlRef = fiilInInfosToHtml(weatherInfoObj);
       const htmlMarkups = imageHtmlRef.querySelector('html').innerHTML;
+
+      // Convert HTML to an Image
+
       let image = await nodeHtmlToImage({
         html: htmlMarkups,
       });
